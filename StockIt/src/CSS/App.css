@@ -1,0 +1,345 @@
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+
+#root {
+  display: flex;
+  flex-direction: column;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 300;
+  line-height: 1.42em;
+  color: #a7a1ae;
+  background-color: #1f2739;
+}
+
+.logo {
+  height: 6em;
+  padding: 0;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #b6aa06aa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #cfbc09aa);
+}
+
+.logoElis {
+  height: 2em;
+  padding: 0;
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 1em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* Divider stretching full width */
+.full-width-divider {
+  width: 100vw; /* viewport width */
+  height: 4px;
+  background-color: #b8980c;
+  margin: 1rem 0;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+.full-width-table-wrapper {
+  width: 98vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -49vw;
+  margin-right: -50vw;
+  overflow-x: scroll; /* scroll if table is too wide */
+}
+
+.blue {
+  color: #185875;
+}
+.yellow {
+  color: #fff842;
+}
+
+/* Make first column narrower */
+.inventory-table td:first-child,
+.inventory-table th:first-child {
+  width: 16%; /* small width */
+  max-width: 120px; /* optional max width */
+  white-space: nowrap;
+}
+
+/* Make last column narrower */
+.inventory-table td:last-child,
+.inventory-table th:last-child {
+  width: 8%;
+  max-width: 60px; /* optional max width */
+  white-space: nowrap;
+}
+
+/* Middle columns scale with content */
+.inventory-table td:nth-child(n + 2):nth-child(-n + 3),
+.inventory-table th:nth-child(n + 2):nth-child(-n + 3) {
+  width: auto; /* grow based on content */
+  min-width: 100px; /* optional minimum */
+}
+
+/* Ensure table still sizes to content */
+.inventory-table {
+  table-layout: auto;
+  width: auto;
+}
+
+.inventory-table {
+  text-align: left;
+  overflow: hidden;
+  width: auto; /* Allow table to size based on content */
+  margin: 0 auto;
+  display: table;
+  padding: 0 0 8em 0;
+  table-layout: auto; /* Let columns scale with content */
+}
+
+.inventory-table td,
+.inventory-table th {
+  padding: 0.5em 1em; /* Adjust padding as needed */
+  white-space: nowrap; /* Prevent content from wrapping */
+}
+
+.inventory-table td input {
+  width: 100%; /* Let input fill the cell */
+  min-width: 50px; /* Optional: prevent it from being too small */
+  box-sizing: border-box;
+}
+
+.inventory-table th h1 {
+  font-weight: bold;
+  font-size: 1em;
+  text-align: left;
+  color: #185875;
+}
+
+.inventory-table td {
+  font-weight: normal;
+  font-size: 1em;
+  -webkit-box-shadow: 0 2px 2px -2px #0e1119;
+  -moz-box-shadow: 0 2px 2px -2px #0e1119;
+  box-shadow: 0 2px 2px -2px #0e1119;
+}
+
+.inventory-table {
+  text-align: left;
+  overflow: hidden;
+  width: 80%;
+  margin: 0 auto;
+  display: table;
+  padding: 0 0 8em 0;
+}
+
+.inventory-table td,
+.inventory-table th {
+  padding-bottom: 2%;
+  padding-top: 2%;
+  padding-left: 2%;
+}
+
+/* Background-color of the odd rows */
+.inventory-table tr:nth-child(odd) {
+  background-color: #323c50;
+}
+
+/* Background-color of the even rows */
+.inventory-table tr:nth-child(even) {
+  background-color: #2c3446;
+}
+
+.inventory-table th {
+  background-color: #1f2739;
+}
+
+.inventory-table td:first-child {
+  color: #fb667a;
+}
+
+.inventory-table tr:hover {
+  background-color: #464a52;
+  -webkit-box-shadow: 0 6px 6px -6px #0e1119;
+  -moz-box-shadow: 0 6px 6px -6px #0e1119;
+  box-shadow: 0 6px 6px -6px #0e1119;
+}
+
+.inventory-table td:hover {
+  background-color: #dfca58;
+  color: #403e10;
+  font-weight: bold;
+
+  box-shadow:
+    #7f7c21 -1px 1px,
+    #7f7c21 -2px 2px,
+    #7f7c21 -3px 3px,
+    #7f7c21 -4px 4px,
+    #7f7c21 -5px 5px,
+    #7f7c21 -6px 6px;
+  transform: translate3d(6px, -6px, 0);
+
+  transition-delay: 0s;
+  transition-duration: 0.4s;
+  transition-property: all;
+  transition-timing-function: line;
+}
+
+@media (max-width: 800px) {
+  .inventory-table td:nth-child(4),
+  .inventory-table th:nth-child(4) {
+    display: none;
+  }
+}
+
+.inventory-table input {
+  background-color: transparent;
+  border: none;
+}
+
+.inventory-table td input {
+  width: 80%;
+  margin-left: 2%;
+  box-sizing: border-box;
+
+  background-color: transparent;
+  border: none;
+
+  font-size: 1.1rem;
+  color: #ff4040;
+  font-weight: 400;
+
+  padding: 0.4em 0.6em;
+}
+
+.inventory-table td input:focus {
+  outline: none;
+  background-color: #1f2739;
+  border-bottom: 2px solid #bbb62e;
+}
+
+.filters {
+  width: 80%;
+  margin: 1.5rem auto;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.filters input,
+.filters select {
+  background-color: #2c3446;
+  color: #fff842;
+  border: none;
+  box-shadow: 0 2px 2px -2px #0e1119;
+
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+
+  padding: 0.5em 0.75em;
+  min-width: 180px;
+}
+
+.filters input::placeholder {
+  color: #a7a1ae;
+}
+
+.filters input:focus,
+.filters select:focus {
+  outline: none;
+  background-color: #1f2739;
+  border-bottom: 2px solid #bbb62e;
+}
+
+.filters input:hover,
+.filters select:hover {
+  background-color: #323c50;
+}
+
+.filters select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background-image:
+    linear-gradient(45deg, transparent 50%, #fff842 50%),
+    linear-gradient(135deg, #fff842 50%, transparent 50%);
+  background-position:
+    calc(100% - 18px) calc(50% - 4px),
+    calc(100% - 12px) calc(50% - 4px);
+  background-size: 6px 6px;
+  background-repeat: no-repeat;
+
+  padding-right: 2.2em;
+}
+
+@media (max-width: 800px) {
+  .filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filters input,
+  .filters select {
+    width: 100%;
+  }
+}
+
+.add-btn {
+  background-color: #bbb62e;
+  color: #1f2739;
+  border: none;
+  font-size: 1.4rem;
+  font-weight: bold;
+  padding: 0.25em 0.6em;
+  cursor: pointer;
+}
+
+.add-btn:hover {
+  background-color: #dfca58;
+}
+
+/* Chrome, Edge, Safari */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
