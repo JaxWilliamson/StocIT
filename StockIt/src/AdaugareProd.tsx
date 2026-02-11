@@ -133,6 +133,9 @@ export default function App() {
         <a href="/procese" target="_blank">
           <img src={elisLogo} className="logo react" alt="Elis logo" />
         </a>
+        <a href="/scanner" target="_blank">
+          <img src={elisLogo} className="logo react" alt="Elis logo" />
+        </a>
       </div>
 
       {/* FILTER BAR */}

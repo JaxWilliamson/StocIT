@@ -30,7 +30,8 @@ startServer();
 const inventorySchema = new mongoose.Schema({
   name: String,
   cat: String,
-  stoc: Number
+  stoc: Number,
+  barcode: String
 });
 
 const consumSchema = new mongoose.Schema({
@@ -149,3 +150,22 @@ app.use("/files", express.static(path.join(__dirname, "public")));
 app.get("/download/proces-verbal", (req, res) => {
   res.download(path.join(__dirname, "public/proc_verbal.pdf"));
 });
+
+
+//barcode
+app.post("/api/inventory/scan", async (req, res) => {
+  const { barcode } = req.body;
+
+  if (!barcode) return res.status(400).json({ error: "Barcode is required" });
+
+  try {
+    const product = await Inventory.findOne({ barcode });
+    if (!product) return res.status(404).json({ error: "Product not found" });
+
+    res.json(product); // <-- must return the product document
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+

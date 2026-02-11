@@ -1,6 +1,8 @@
 import { useEffect, useState, useMemo } from "react";
 import { useLocation } from "react-router-dom";
 import elisLogo from "./assets/ELIS.png";
+import BarcodeScannerComponent from "react-qr-barcode-scanner";
+import toast, { Toaster } from "react-hot-toast";
 import "./CSS/Form.css";
 
 //Get Current Date Function
@@ -19,6 +21,14 @@ export default function App() {
   if (!item) return <div>No item data passed!</div>;
 
   const [currentDate, setCurrentDate] = useState(getDate());
+
+  const [currentData, setCurrentData] = useState("No result");
+
+  // State to store an array of scanned results for history tracking
+  const [scanHistory, setScanHistory] = useState([]);
+
+  // Initialize audio for the beep sound effect
+  const beepSound = new Audio("/beep.mp3");
 
   return (
     <>
