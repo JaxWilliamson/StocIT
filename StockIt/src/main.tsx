@@ -10,6 +10,7 @@ import GenConsum from "./GenConsum.tsx";
 import IstoricConsum from "./IstoricConsum.tsx";
 import ProcesVerbal from "./ProcesVerbal.tsx";
 import Scanner from "./BARCODE.tsx";
+import Acte from "./acte.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -25,6 +26,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="/istoricconsum" element={<IstoricConsum />} />
         <Route path="/procesverbal" element={<ProcesVerbal />} />
         <Route path="/scanner" element={<Scanner />} />
+        <Route path="/acte/:id" element={<Acte />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,

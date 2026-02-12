@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import elisLogo from "./assets/ELIS.png";
 import "./CSS/Istoric.css";
 

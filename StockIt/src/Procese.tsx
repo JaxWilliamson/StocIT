@@ -120,12 +120,7 @@ export default function App() {
                     className="logoElis"
                     alt="Elis logo"
                     style={{ cursor: "pointer" }}
-                    onClick={() =>
-                      window.open(
-                        "http://localhost:5000/files/Model-Proces-Verbal.pdf",
-                        "_blank",
-                      )
-                    }
+                    onClick={() => navigate(`/acte/${item._id}`)}
                   />
                 </td>
               </tr>

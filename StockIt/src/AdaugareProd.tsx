@@ -7,6 +7,7 @@ interface InventoryItem {
   name: string;
   cat: string;
   stoc: number;
+  currentLocation: string;
 }
 
 export default function App() {
@@ -22,6 +23,7 @@ export default function App() {
     name: "",
     cat: "",
     stoc: 0,
+    currentLocation: "Depozit Container",
   });
 
   // Fetch inventory
@@ -95,7 +97,12 @@ export default function App() {
       const createdItem: InventoryItem = await res.json();
 
       setInventory((prev) => [...prev, createdItem]);
-      setNewItem({ name: "", cat: "", stoc: 0 });
+      setNewItem({
+        name: "",
+        cat: "",
+        stoc: 0,
+        currentLocation: "Depozit Container", // or your default
+      });
     } catch (err) {
       console.error("Failed to add product", err);
     }
@@ -174,6 +181,7 @@ export default function App() {
               <th>Categorie</th>
               <th>Nume</th>
               <th>Stoc</th>
+              <th>Locație</th>
             </tr>
           </thead>
 
@@ -200,7 +208,7 @@ export default function App() {
                 />
               </td>
 
-              <td style={{ display: "flex", gap: "0.5rem" }}>
+              <td>
                 <input
                   type="number"
                   value={newItem.stoc}
@@ -211,6 +219,19 @@ export default function App() {
                     })
                   }
                 />
+              </td>
+
+              <td>
+                <input
+                  value={newItem.currentLocation}
+                  onChange={(e) =>
+                    setNewItem({
+                      ...newItem,
+                      currentLocation: e.target.value,
+                    })
+                  }
+                ></input>
+
                 <button className="add-btn" onClick={handleAddProduct}>
                   +
                 </button>
@@ -264,6 +285,7 @@ export default function App() {
                     }}
                   />
                 </td>
+                <td>{item.currentLocation}</td>
               </tr>
             ))}
           </tbody>
